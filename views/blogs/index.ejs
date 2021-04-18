@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My diary</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  
+    <%- include('../layout') %>
+    <br/>
+    <main class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">
+             My diary
+          </h3>
+          
+          <article class="blog-post">
+            
+            <p>
+              <% Object.values(blogs).forEach(function(blog){%>
+                  <h4><b>ความทรงจำเรื่อง : </b><%= blog.title %></h4>
+                  <p class="mylayout"><b>เนื้อหา : </b> <%= blog.author %></p>
+                  <a href="/blogs/edit/<%= blog._id %>" class="btn btn-outline-warning btn-sm">แก้ไข</a>
+                  <a href="/blogs/delete/<%= blog._id %>" onclick="return confirm('ต้องการลบหรือไม่ ?')" class="btn btn-outline-danger btn-sm">ลบ</a>
+                  <hr>
+              <% }) %>
+            </p>
+          </article><!-- /.blog-post -->
+        </div>
+    
+        <div class="col-md-4">
+          <div class="p-4 mb-3 bg-light rounded">
+            <h4 class="fst-italic">7 ข้อดีของการเขียนไดอารี่</h4>
+            <p class="mb-0">1.ไดอารี่ช่วยประมวลเรื่องราวที่เกิดขึ้น</p>
+            <p class="mb-0">2.ไดอารี่ช่วยทำให้เข้าใจความคิดตัวเอง</p>
+            <p class="mb-0">3.ไดอารี่ช่วยให้มองเห็นบริบทของชีวิต</p>
+            <p class="mb-0">4.ไดอารี่ช่วยให้เราเท่าทันความรู้สึกของตัวเอง</p>
+            <p class="mb-0">5.ไดอารี่ทำให้เราเชื่อมต่อกับจิตใจของตัวเอง</p>
+            <p class="mb-0">6.ไดอารี่เป็นตัวช่วยบันทึกบทเรียนที่สำคัญ</p>
+            <p class="mb-0">7.ไดอารี่เปิดโอกาสให้เราได้ถามคำถามกับตัวเอง</p>
+          </div>
+        </div>
+      </div><!-- /.row -->
+    </main>
+</body>
+</html>

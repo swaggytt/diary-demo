@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My diary</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <%- include('../layout') %>
+    <br/>
+    <main class="container">
+
+      <div class="row">
+        <div class="col-md-8">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">
+            เขียนไดอารี่
+          </h3>
+    
+          <article class="blog-post">
+            <% if (locals.errors) { %>
+              <ul class="alert alert-danger">
+                  <% Object.values(errors).forEach(function(error){ %>
+                        <li class="mx-4"><%= error.msg %></li>
+                  <% }); %>
+              </ul>
+            <% } %>
+
+            <form action="/blogs/add" method="POST">
+                <div class="from-group">
+                    <label for="">ชื่อหัวข้อ</label>
+                    <input type="text" name="title" class="form-control" id="">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">เนื้อหา</label>
+                    <textarea type="text" name="author" class="form-control" id=""></textarea>
+                </div>
+                <div class="py-2">
+                    <input type="submit" class="btn btn-outline-success" name="" id="" value="บันทึก">
+                </div>
+            </form>
+          </article><!-- /.blog-post -->
+        </div>
+    
+        <div class="col-md-4">
+          <div class="p-4 mb-3 bg-light rounded">
+            <h4 class="fst-italic">7 ข้อดีของการเขียนไดอารี่</h4>
+            <p class="mb-0">1.ไดอารี่ช่วยประมวลเรื่องราวที่เกิดขึ้น</p>
+            <p class="mb-0">2.ไดอารี่ช่วยทำให้เข้าใจความคิดตัวเอง</p>
+            <p class="mb-0">3.ไดอารี่ช่วยให้มองเห็นบริบทของชีวิต</p>
+            <p class="mb-0">4.ไดอารี่ช่วยให้เราเท่าทันความรู้สึกของตัวเอง</p>
+            <p class="mb-0">5.ไดอารี่ทำให้เราเชื่อมต่อกับจิตใจของตัวเอง</p>
+            <p class="mb-0">6.ไดอารี่เป็นตัวช่วยบันทึกบทเรียนที่สำคัญ</p>
+            <p class="mb-0">7.ไดอารี่เปิดโอกาสให้เราได้ถามคำถามกับตัวเอง</p>
+          </div>
+        </div>
+      </div><!-- /.row -->
+    </main>
+</body>
+</html>
